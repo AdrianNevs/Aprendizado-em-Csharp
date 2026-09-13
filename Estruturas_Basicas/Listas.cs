@@ -131,3 +131,34 @@ List<int> lista = new List<int>
 };
 
 Console.WriteLine($"Maior sequência = {MaiorSequencia(lista)}");
+
+
+// ============================================================
+// EXERCÍCIO — ENCONTRAR PICOS
+// Percorrer a lista e identificar valores maiores que
+// seus dois vizinhos.
+// ============================================================
+
+
+List<int> List_Peaks(List<int> List_value)
+{
+
+    List<int> filter_peaks = new List<int>();
+
+    for (int i = 0; i < List_value.Count - 2; i++)
+    {
+        if (List_value[i] < List_value[i + 1] && List_value[i+1] > List_value[i+2])
+        {
+            filter_peaks.Add(List_value[i+1]);
+        }
+    }
+    return filter_peaks;
+}
+
+List<int> List_values = new List<int>{ 2, 5, 3, 8, 4, 6, 1 };
+
+Console.Write("Valores de picos = ");
+foreach (int value in List_Peaks(List_values))
+{
+    Console.Write(value);
+}
