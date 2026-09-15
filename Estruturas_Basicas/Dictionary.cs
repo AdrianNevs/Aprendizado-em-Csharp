@@ -1,9 +1,9 @@
 // ============================================================
-// EXERCÍCIO 3 — PRODUTO MAIS VENDIDO
+// EXERCÍCIO 3 — TOTALIZAR VENDAS POR PRODUTO
 // Receba uma List<string> no formato "Produto: Quantidade".
-// Some as quantidades por produto e retorne o produto
-// com a maior quantidade total.
-// Use Dictionary<string, int>, foreach e sem LINQ/GroupBy.
+// Some as quantidades de cada produto e retorne um
+// Dictionary<string, int> contendo o total vendido por produto.
+// Use foreach e Dictionary<string, int>, sem LINQ/GroupBy.
 // ============================================================
 
 
@@ -91,7 +91,7 @@ Console.WriteLine();
 // que ela aparece na lista.
 // ============================================================
 
-Dictionary<string,int> Contar_Paralavras(List<string> Produtos)
+Dictionary<string,int> Contar_Palavra0(List<string> Produtos)
 {
     Dictionary<string,int> Produtos_dic = new Dictionary<string, int>();
     foreach (var item in Produtos)
@@ -114,7 +114,7 @@ List<string> palavras1 = new List<string>
     "brinquedo"
 };
 
-foreach (var item in Contar_Paralavras(palavras))
+foreach (var item in Contar_Palavra0(palavras))
 {
     Console.WriteLine($"key = {item.Key} value = {item.Value}");
 }
