@@ -91,7 +91,7 @@ Console.WriteLine();
 // que ela aparece na lista.
 // ============================================================
 
-Dictionary<string,int> Contar_Palavra0(List<string> Produtos)
+Dictionary<string,int> Contar_Com_Count(List<string> Produtos)
 {
     Dictionary<string,int> Produtos_dic = new Dictionary<string, int>();
     foreach (var item in Produtos)
@@ -114,7 +114,7 @@ List<string> palavras1 = new List<string>
     "brinquedo"
 };
 
-foreach (var item in Contar_Palavra0(palavras))
+foreach (var item in Contar_Com_Count(palavras))
 {
     Console.WriteLine($"key = {item.Key} value = {item.Value}");
 }
