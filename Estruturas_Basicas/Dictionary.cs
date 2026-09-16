@@ -1,4 +1,65 @@
 // ============================================================
+// EXERCÍCIO 4 — IDENTIFICAR O PRODUTO MAIS VENDIDO
+// Receba uma List<string> no formato "Produto: Quantidade".
+// Some as quantidades de cada produto repetido e determine
+// qual produto possui a maior quantidade total vendida.
+// Exiba o nome do produto e sua quantidade total.
+// Retorne um Dictionary<string, int> contendo o total vendido
+// por produto.
+// Use foreach e Dictionary<string, int>, sem LINQ/GroupBy.
+// ============================================================
+
+Dictionary<string, int> ProdutoEmAlta(List<string> Produtos)
+{
+    Dictionary<string, int> Dic_produtos = new Dictionary<string, int>();
+    int Maior = 0;
+    string Chave_valor = "";
+    foreach (string item in Produtos)
+    {
+        string[] separar = item.Split(':');
+        if (!Dic_produtos.ContainsKey(separar[0]))
+        {
+            Dic_produtos.Add(separar[0], Convert.ToInt32(separar[1].Trim()));
+        }
+        else
+        {
+            Dic_produtos[separar[0]] += Convert.ToInt32(separar[1].Trim());
+        }
+    }
+    for (int i = 0; i < Dic_produtos.Count ; i++)
+    {
+        
+        if (Maior < Dic_produtos.Values.ElementAt(i))
+        {
+            Maior = Dic_produtos.Values.ElementAt(i);
+            Chave_valor = $"item {Dic_produtos.Keys.ElementAt(i)} valor Maior = {Maior}";
+        }
+
+    
+    }
+    Console.WriteLine(Chave_valor);
+    return Dic_produtos;
+}
+
+List<string> Vendas__ = new List<string>
+{
+    "Ração: 30",
+    "Brinquedo: 15",
+    "Ração: 20",
+    "Shampoo: 25",
+    "Brinquedo: 10",
+    "Shampoo: 15"
+};
+foreach (var item in ProdutoEmAlta(Vendas__))
+{
+    Console.WriteLine($"key = {item.Key} value = {item.Value}");
+
+}
+
+Console.WriteLine();
+
+
+// ============================================================
 // EXERCÍCIO 3 — TOTALIZAR VENDAS POR PRODUTO
 // Receba uma List<string> no formato "Produto: Quantidade".
 // Some as quantidades de cada produto e retorne um
