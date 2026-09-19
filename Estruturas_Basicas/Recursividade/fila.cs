@@ -67,3 +67,50 @@ string maior_menor_media()
 
 
 Console.WriteLine(maior_menor_media());
+
+
+// EXERCÍCIO — FILA PREFERENCIAL
+// Simule uma fila de atendimento usando Dictionary<string, int>.
+// 1 = atendimento preferencial | 0 = atendimento comum.
+// Atenda primeiro todos os preferenciais, respeitando a ordem de chegada.
+// Após finalizar os preferenciais, atenda os clientes comuns.
+// Remova cada pessoa da fila após o atendimento.
+
+Dictionary<string,int> List_person = new Dictionary<string, int> {{"adrian",0},{"moises",1},{"Galileu",0},{"moana",1},{"ana Flavia",1}};
+
+void Fila_ordem(Dictionary<string,int> List_person)
+{
+    int i = 0;
+
+    while (List_person.Count != 0)
+    {
+        
+        
+        
+        if (List_person.ElementAt(i).Value == 1 && List_person.Count(x => x.Value == 1) > 0)
+        {
+            Console.WriteLine($"foi atendido = {List_person.ElementAt(i).Key}");
+            List_person.Remove(List_person.ElementAt(i).Key);
+            i--;
+            
+        }
+        if (!(List_person.Count(x => x.Value == 1) > 0))
+        {
+            i = 0;
+            
+        }
+
+        if (List_person.ElementAt(i).Value == 0 && !(List_person.Count(x => x.Value == 1) > 0))
+        {
+            Console.WriteLine($"foi atendido = {List_person.ElementAt(i).Key}");
+            List_person.Remove(List_person.ElementAt(i).Key);
+            i--;
+        }
+        Console.WriteLine(i);
+        i++;
+
+        
+    }
+
+}
+Fila_ordem(List_person);
